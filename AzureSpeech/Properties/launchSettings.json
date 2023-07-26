@@ -1,0 +1,30 @@
+{
+  "profiles": {
+    "AzureSpeech": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AZURE_KEY": "2678bf2e73804ad192baf4eb8775db46",
+        "AZURE_REGION": "eastus"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5158"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:35036",
+      "sslPort": 0
+    }
+  }
+}

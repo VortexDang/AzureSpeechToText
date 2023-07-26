@@ -1,0 +1,38 @@
+﻿@page "/TexttoSpeech"
+
+
+@using Microsoft.CognitiveServices.Speech;
+@using Microsoft.CognitiveServices.Speech.Audio;
+@using Microsoft.CognitiveServices.Speech.Translation;
+
+<PageTitle>Text to Speech</PageTitle>
+
+<h1>Text to Speech</h1>
+<hr />
+ <p>
+    <input type="text"  class="form-control" @bind-value="InputValue" />
+</p>
+
+<button class="btn btn-primary" @onclick="Click_Speak">Speak</button>
+
+@code {
+    static string? InputValue { get; set; }
+
+    async Task Click_Speak()
+    {
+        await SynthesizeAudioAsync();
+    }
+
+    static async Task SynthesizeAudioAsync()
+    {
+        var config = SpeechConfig.FromSubscription(Environment.GetEnvironmentVariable("AZURE_KEY"), Environment.GetEnvironmentVariable("AZURE_REGION"));
+
+        config.SpeechSynthesisLanguage = "en-US";
+        config.SpeechSynthesisVoiceName = "en-US-RogerNeural";
+
+        using var synthesizer = new SpeechSynthesizer(config);
+
+        await synthesizer.SpeakTextAsync(InputValue);
+
+    }
+}
